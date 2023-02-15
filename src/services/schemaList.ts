@@ -5,8 +5,6 @@ export type ListDocument = HydratedDocument<brand_sales_daily>;
 
 @Schema()
 export class brand_sales_daily{
-@Prop()
-name:String
 
 @Prop()
 date:String
@@ -32,8 +30,7 @@ createdAt:String
 @Prop()
 updatedAt : String 
 
-@Prop()
-_v:String 
+
 
 }
 

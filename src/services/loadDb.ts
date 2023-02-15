@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import {InjectModel} from '@nestjs/mongoose'
-import { Model } from "mongoose";
+import { response } from "express";
+import { Model,FilterQuery } from "mongoose";
 import { brand_sales_daily }  from "./schemaList";
 import { ListDocument } from "./schemaList";
 
@@ -14,4 +15,9 @@ export class getListService{
         const newItem = new this.listModel(item);
         return newItem.save();
     }
+
+    async find(listFilterQuery:FilterQuery<brand_sales_daily>):Promise<brand_sales_daily[]>{
+        const response = await this.listModel.find(listFilterQuery)
+        return response
+    }   
 }
